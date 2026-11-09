@@ -1,0 +1,94 @@
+<!-- ... existing code ... -->
+          <!-- Hero Action CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#intake-portal" class="w-full sm:w-auto px-7 py-4 rounded-lg bg-gradient-to-r from-champagne to-champagne-light hover:from-champagne-light hover:to-champagne text-obsidian font-bold text-sm uppercase tracking-wider text-center shadow-glow transition-all flex items-center justify-center gap-2">
+              <i class="ph ph-compass text-lg"></i>
+              <span>Initiate Vehicle Mandate</span>
+            </a>
+            <a href="mailto:support@desotoautoconcierge.com" class="w-full sm:w-auto px-6 py-4 rounded-lg bg-cardbg hover:bg-carbon border border-white/10 text-titanium font-medium text-sm text-center transition-all flex items-center justify-center gap-2.5">
+              <i class="ph ph-envelope-simple text-champagne text-lg"></i>
+              <span>support@desotoautoconcierge.com</span>
+            </a>
+          </div>
+
+          <!-- Trust Subtext -->
+<!-- ... existing code ... -->
+          <!-- Immediate Call / Action Triggers -->
+          <div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
+            <a href="mailto:support@desotoautoconcierge.com?subject=Mandate Inquiry - DeSoto Auto Concierge" class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-champagne text-obsidian text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+              <i class="ph ph-envelope text-base"></i>
+              <span>Email Support: support@desotoautoconcierge.com</span>
+            </a>
+            <button onclick="resetIntakeForm()" class="w-full sm:w-auto px-5 py-3.5 rounded-lg bg-carbon border border-white/10 text-silver hover:text-titanium text-xs uppercase tracking-wider text-center">
+              Submit Another Inquiry
+            </button>
+          </div>
+
+        </div>
+<!-- ... existing code ... -->
+          <td class="py-3 px-4 font-mono">
+            <span class="text-champagne block font-semibold">${lead.budget}</span>
+            <span class="text-[10px] text-silver">${lead.timeline}</span>
+          </td>
+          <td class="py-3 px-4 text-silver">
+            ${lead.location}
+          </td>
+          <td class="py-3 px-4">
+            <select onchange="updateLeadStatus('${lead.id}', this.value)" class="bg-obsidian border border-white/10 text-[11px] rounded px-2 py-1 text-titanium focus:border-champagne focus:outline-none">
+              <option value="New Lead" ${lead.status === 'New Lead' ? 'selected' : ''}>New Lead</option>
+              <option value="Contacted" ${lead.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option value="Active Search" ${lead.status === 'Active Search' ? 'selected' : ''}>Active Search</option>
+              <option value="Retainer Paid" ${lead.status === 'Retainer Paid' ? 'selected' : ''}>Retainer Paid</option>
+              <option value="Closed / Delivered" ${lead.status === 'Closed / Delivered' ? 'selected' : ''}>Closed / Delivered</option>
+            </select>
+          </td>
+          <td class="py-3 px-4 text-right whitespace-nowrap">
+            <a href="mailto:${lead.email}?subject=DeSoto Auto Concierge Mandate ${lead.id}" class="inline-flex items-center justify-center w-7 h-7 rounded bg-cardbg hover:bg-obsidian border border-white/10 text-champagne hover:text-champagne-light mr-1" title="Email Client">
+              <i class="ph ph-envelope text-xs"></i>
+            </a>
+            <button onclick="deleteLead('${lead.id}')" class="inline-flex items-center justify-center w-7 h-7 rounded bg-cardbg hover:bg-red-950/40 border border-white/10 text-silver hover:text-red-400" title="Delete">
+              <i class="ph ph-trash text-xs"></i>
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+<!-- ... existing code ... -->
+  <!-- FOOTER -->
+  <footer class="bg-obsidian border-t border-white/10 py-12 text-silver text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-4 gap-8">
+      
+      <div class="sm:col-span-2 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded bg-carbon border border-champagne/40 flex items-center justify-center text-champagne">
+            <i class="ph ph-shield-check text-lg"></i>
+          </div>
+          <span class="font-serif font-bold text-titanium text-sm uppercase tracking-wider">DeSoto Auto Concierge</span>
+        </div>
+        <p class="text-silver/80 max-w-md leading-relaxed">
+          Colorado’s private buyer and seller automotive advisory. Zero retail inventory, zero dealer incentives. Representing client interests exclusively across the Denver Metro, Boulder, Cherry Hills, and Rocky Mountain Corridors.
+        </p>
+        <p class="text-[11px] text-silver/50">
+          &copy; <span id="current-year"></span> DeSoto Auto Concierge. All Rights Reserved. Not a licensed retail car lot; operates strictly as a private transactional consultant and client agent.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase text-titanium tracking-widest block font-bold">Client Inquiries</span>
+        <p class="text-silver">Support &amp; Desk Inquiries:</p>
+        <a href="mailto:support@desotoautoconcierge.com" class="text-champagne hover:underline font-mono block">support@desotoautoconcierge.com</a>
+        <p class="text-[11px] text-silver/60 pt-1">Inquiries reviewed during standard Colorado business hours.</p>
+      </div>
+
+      <div class="space-y-2">
+        <span class="text-xs font-mono uppercase text-titanium tracking-widest block font-bold">Quick Protocols</span>
+        <ul class="space-y-1.5">
+          <li><a href="#intake-portal" class="hover:text-champagne">Vehicle Spec Intake</a></li>
+          <li><a href="#pricing-tiers" class="hover:text-champagne">Retainer Schedules</a></li>
+          <li><a href="#services" class="hover:text-champagne">Private Party Selling</a></li>
+          <li><button onclick="toggleDeskDashboard()" class="text-champagne hover:underline font-medium">Operator Desk CRM</button></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+<!-- ... existing code ... -->
